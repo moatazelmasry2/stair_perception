@@ -1,0 +1,59 @@
+<launch>
+  <!-- <include file="$(find openni_camera)/launch/openni_node.launch"/> -->
+  <!-- <node name="smartplanebuilder" pkg="fhg_pcl" type="test_smartplane" respawn="true"/> -->
+  <!-- <node name="smartplanebuilder" pkg="fhg_pcl" type="test_smartplane" respawn="true" output="screen" launch-prefix="xterm 
+    -e gdb -args"> -->
+  <node name="test_fpe" pkg="fhg_pcl" type="test_fpe" respawn="false" output="screen">
+
+    <!-- <param name="inputPath" value="/home/elmasry/Desktop/kris_39.raw" type="string" /> -->
+    <!-- <param name="inputPath" value="/home/elmasry/Desktop/fpe_input.raw" type="string" /> -->
+    <param name="inputPath" value="/home/elmasry/Desktop/data/down/dist_64/deg_0/320p_take1.raw" type="string" />
+    <!-- <param name="inputPath" value="/home/elmasry/Desktop/data/up/dist_30/deg_30/320p_take1.raw" type="string" />  -->
+    <!-- <param name="inputPath" value="/home/elmasry/Desktop/metal_downup.raw" type="string" /> -->
+    
+    <param name="outputFolder" value="/home/elmasry/Desktop/tmp/" type="string" />
+    <param name="horznumberOfRays" value="320" type="int" />
+    
+    
+    <!-- Params related to SmartLine3DBuilder -->
+    <!-- MSE Threshhold. if the segment mse exceeds this number. line is cut. the lower=the more cuts,more segments and more 
+      precise, but slower -->
+    <param name="MSECUTOFF" value="50" type="double" />
+    <param name="MINSEGLENGTH" value="150" type="double" />
+    <param name="MAXPOINTDIST" value="100" type="double" />
+    <!-- <param name="MAXPOINTDIST" value="0.0038" type="double" /> -->
+
+    <!-- params related to SmartPlane3DBuilder -->
+    <param name="NN" value="20" type="int" />
+    <!-- Max distance allowed between 2 segments -->
+    <param name="MAXSEGMENTDISTANCE" value="50" type="double" />
+    <!-- Are two lines intersecting, the higher = more success -->
+    <param name="isINTERSECTINGPARAM" value="50" type="double" />
+    <!-- max allowed angle deviation between two lines. the higher=the more difficult=less success -->
+    <param name="maxPARALELLANG_DEG" value="10" type="double" />
+    <param name="MAXMSE" value="20" type="double" />
+    <!-- max deviation of a plane to the scan angle. the higher=more success -->
+    
+    <!-- Tune the result -->
+    <param name="rotate_all" value="true" type="bool" />
+    <!-- Tilt angle of the camera -->
+    <param name="camera_tilt" value="30" type="int" />
+    <!-- Minimum number of points in a plane -->
+    <param name="MINNUMPOINTSPERPLANE" value="50" type="int" />
+    
+    <param name="planes_merge" value="true" type="bool" />
+    <param name="MAXPLANEDISTANCE" value="100" type="double" />
+    <param name="maxAngleDeviation" value="18" type="double" />
+    
+    <!-- 0 means we iterate on all planes. To stop merging planes, set  planes_merge to false.-->
+    <!-- currently unused -->
+    <!-- Updates the ledger, for test reasons -->
+    <param name="ledger_update" value="false" type="bool" />
+    <!-- color the first and last segment of each plane -->
+    <param name="colorEdges" value="true" type="bool" />
+    
+    <!-- divide every point of the output clouds by 100. for visualisation reasons -->
+    <param name="divideby1000" value="true" type="bool" />
+
+  </node>
+</launch>

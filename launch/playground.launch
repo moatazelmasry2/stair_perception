@@ -1,0 +1,7 @@
+<launch>
+  <node name="playground" pkg="fhg_pcl" type="houghman" respawn="true" output="screen"
+  args="/home/elmasry/Desktop/all.data/results/opencv_edgedetection/result1/normals_only/normals_edges_1338213814154.jpg" launch-prefix="xterm -e gdb --args" >
+    
+    
+  </node>
+</launch>

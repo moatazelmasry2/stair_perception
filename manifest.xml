@@ -1,0 +1,28 @@
+<package>
+  <description brief="fpe">
+     fpe
+  </description>
+  <author>elmasry</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/fpe</url>
+  <depend package="roslib"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="eigen" />
+  <depend package="pcl"/>
+  <depend package="pcl_visualization"/>
+  <depend package="sensor_msgs"/>
+  <depend package="gsl" />
+  <depend package="opencv2" />
+  <depend package="cv_bridge" />
+  <rosdep name="opencv2.3"/>
+
+  <export>
+    <cpp cflags="-I${prefix}/include -I${prefix}/cfg/cpp" lflags="-Wl,-rpath,${prefix}/lib -L ${prefix}/lib -lfhg_pcl" />
+    <nodelet plugin="${prefix}/pcl_nodelets.xml" />
+  </export>
+  
+</package>
+
+

@@ -1,0 +1,9 @@
+<launch>
+
+  <node pkg="rosbag" type="rosbag" name="rosbag" args="play -d 2 /home/elmasry/Desktop/all.data/sternenburgstr/going.up/2012-09-15-08-47-39.bag"/>
+
+  <node name="extract" pkg="image_view" type="extract_images" respawn="false" output="screen" cwd="node">
+    <remap from="image" to="/camera/rgb/image_color"/>
+    <param name="filename_format" value="/home/elmasry/Desktop/all.data/images4/frame%i.jpg"/>
+  </node>
+</launch>

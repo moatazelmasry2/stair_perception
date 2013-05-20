@@ -1,0 +1,4 @@
+<launch>
+  <node name="formatpcd" pkg="fhg_pcl" type="formatpcd" respawn="true" output="screen">
+  </node>
+</launch>
